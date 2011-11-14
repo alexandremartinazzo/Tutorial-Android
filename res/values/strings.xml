@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-
     <string name="hello">Hello World, TutorialActivity!</string>
     <string name="app_name">Tutorial</string>
-
+    <string name="botao_ok">OK</string>
+    <string name="botao_limpar">Limpar</string>
+    <string name="label_nome">Nome</string>
+    <string name="label_numero">Número</string>
 </resources>

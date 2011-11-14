@@ -6,4 +6,6 @@
     <string name="botao_limpar">Limpar</string>
     <string name="label_nome">Nome</string>
     <string name="label_numero">Número</string>
+    <string name="limparClickHandler">limparClickHandler</string>
+    <string name="okClickHandler">okClickHandler</string>
 </resources>

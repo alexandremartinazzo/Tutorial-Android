@@ -3,7 +3,10 @@ package br.usp.lsi.tutorial1;
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 public class ListaContatos extends ListActivity{
 	
@@ -17,7 +20,7 @@ public class ListaContatos extends ListActivity{
 		dbHelper.open();
 		
 		//Preenche a lista
-		Cursor cursor = dbHelper.buscaContatos();
+		Cursor cursor = dbHelper.listaContatos();
 		startManagingCursor(cursor);
 
 		String[] from = new String[] {DBHelp.NOME, DBHelp.TELEFONE};
@@ -28,12 +31,15 @@ public class ListaContatos extends ListActivity{
 		registerForContextMenu(getListView());
 	}
 	
-//	@Override
-//	protected void onDestroy() {
-//		super.onDestroy();
-//		if (dbHelper != null) {
-//			dbHelper.close();
-//		}
-//	}
+	public void onListItemClick(ListView parent, View v, int position, long id) {
+	    Cursor item = dbHelper.buscaContato(id);
+	    
+	    String nome = item.getString(item.getColumnIndex(dbHelper.NOME));
+	    String tel = item.getString(item.getColumnIndex(dbHelper.TELEFONE));
+	    
+        Toast.makeText(this,
+            "Você selecionou\n" + nome +": "+ tel,
+            Toast.LENGTH_SHORT).show();
+    }
 
 }

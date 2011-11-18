@@ -65,9 +65,21 @@ public class DBHelp extends SQLiteOpenHelper{
 	/**
 	 * Lê todos os contatos da base de dados
 	 */
-	public Cursor buscaContatos() {
+	public Cursor listaContatos() {
 		return database.query(TABELA, new String[] {ID,	NOME, TELEFONE }, null, null, null, null, null);
 	}
 
+	/**
+	 * Busca um contato específico via ID
+	 */
+	public Cursor buscaContato(long id) throws SQLException {
+        Cursor cursor = database.query(true, TABELA, new String[] {
+                ID, NOME, TELEFONE },
+                ID + "=" + id, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
 	
 }

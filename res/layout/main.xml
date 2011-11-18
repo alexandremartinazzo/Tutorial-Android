@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <Button
+        android:id="@+id/buttonOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_nome"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_centerVertical="true"
+        android:onClick="OKClickHandler"
+        android:text="@string/ok" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.00"
+        android:text="@string/nome" />
+
+    <Button
+        android:id="@+id/buttonLimpar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonOK"
+        android:layout_alignBottom="@+id/buttonOK"
+        android:layout_toRightOf="@+id/buttonOK"
+        android:onClick="LimparClickHandler"
+        android:text="@string/clean" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/textTelefone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName" >
+        android:layout_above="@+id/buttonOK"
+        android:layout_alignParentLeft="true"
+        android:maxLength="10"
+        android:inputType="phone" >
 
         <requestFocus />
     </EditText>
@@ -24,34 +47,24 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_numero"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_above="@+id/textTelefone"
+        android:layout_alignParentLeft="true"
+        android:text="@string/tel" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/textNome"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="phone" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+    <Button
+        android:id="@+id/buttonAgenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textTelefone"
+        android:layout_toRightOf="@+id/buttonLimpar"
+        android:onClick="AgendaClickHandler"
+        android:text="@string/agenda" />
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="okClickHandler"
-            android:text="@string/botao_ok" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="limparClickHandler"
-            android:text="@string/botao_limpar" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

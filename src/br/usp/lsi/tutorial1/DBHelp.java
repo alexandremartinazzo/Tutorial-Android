@@ -82,4 +82,10 @@ public class DBHelp extends SQLiteOpenHelper{
         return cursor;
     }
 	
+	/**
+	 * Apaga um contato específico via ID
+	 */
+	public boolean apagaContato(long id) {
+	       return database.delete(TABELA, ID + "=" + id, null) > 0;
+	}
 }
